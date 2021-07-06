@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "chat-angular-26d93": {
+      "hosting": {
+        "chat-angular": [
+          "chat-angular-26d93"
+        ]
+      }
+    }
+  }
+}
