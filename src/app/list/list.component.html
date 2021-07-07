@@ -1,2 +1,29 @@
+
 <app-btn-logout></app-btn-logout>
-<p>list works!</p>
+
+
+<nav>
+  <mat-toolbar color="primary">
+    <span>Salas</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon routerLink="/">exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+</nav>
+
+<div class="templateList">
+  <button
+    mat-raised-button
+    color="primary"
+    aria-label="botão de criar nova sala"
+    routerLink="/newRoom"
+  >
+    + Criar nova sala
+  </button>
+</div>
+
