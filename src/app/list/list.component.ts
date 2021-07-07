@@ -13,9 +13,8 @@ export class ListComponent implements OnInit {
   List: Array<List>=[];
 
 
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
 
 
 }

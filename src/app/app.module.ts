@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-
 import { LoginComponent } from './login/login.component';
 import { ListComponent } from './list/list.component';
 import { NewRoomComponent } from './new-room/new-room.component';
