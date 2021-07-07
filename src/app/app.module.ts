@@ -1,31 +1,44 @@
 import { environment } from 'src/environments/environment';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-
-import { ROUTES } from './app.routes';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
-import {
-  AngularFirestore,
-  AngularFirestoreModule,
-} from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
+import { NewRoomComponent } from './new-room/new-room.component';
+import { ChatComponent } from './chat/chat.component';
+import { BtnLogoutComponent } from './components/btn-logout/btn-logout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    ListComponent,
+    NewRoomComponent,
+    ChatComponent,
+    BtnLogoutComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES),
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

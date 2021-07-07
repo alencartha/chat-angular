@@ -11,7 +11,7 @@ import { FirebaseApp } from '@angular/fire';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  tableUsers: any;
+  tableUsers = this.firebase.database().ref('users/');
 
   loginForm = this.formBuilder.group({
     nickname: '',
@@ -26,14 +26,20 @@ export class LoginComponent implements OnInit {
     this.titlePage.setTitle('Login');
   }
 
-  submitLogin(user: any): void {
-    console.log(user.nickname);
-    this.firebase
-      .firestore()
-      .collection('users')
-      .add({ nickname: user.nickname })
-      .then(() => {
-        localStorage.setItem('nickname', user.nickname);
+  submitLogin(user: any) {
+    this.tableUsers
+      .orderByChild('nickname')
+      .equalTo(user.nickname)
+      .once('value', (snapshot) => {
+        if (snapshot.exists()) {
+          localStorage.setItem('nickname', user.nickname);
+          this.router.navigate(['/list']);
+        } else {
+          const newUser = this.firebase.database().ref('users/').push();
+          newUser.set(user);
+          localStorage.setItem('nickname', user.nickname);
+          this.router.navigate(['/list']);
+        }
       });
   }
 
