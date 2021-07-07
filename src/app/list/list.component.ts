@@ -9,7 +9,13 @@ import { Title } from '@angular/platform-browser';
 export class ListComponent implements OnInit {
   constructor(private titlePage: Title) {
     this.titlePage.setTitle('Room List');
+
+  List: Array<List>=[];
+
+
+
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {}
+
 }
