@@ -1,1 +1,24 @@
-<p>new-room works!</p>
+<section class="container">
+  <h1>Digite o nome da nova sala!</h1>
+  <form [formGroup]="newRoomForm" (ngSubmit)="addNewRoom(newRoomForm.value)">
+    <mat-form-field>
+      <mat-label> nome da sala </mat-label>
+      <input matInput id="nickname" type="text" formControlName="roomName" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" class="ml">
+      <mat-icon>save</mat-icon>
+    </button>
+  </form>
+</section>
+
+<div *ngIf="roomCreated" class="alert alert-success m-3" role="alert">
+  Sala criada!
+</div>
+
+<div
+  *ngIf="roomExists && !roomCreated"
+  class="alert alert-warning m-3"
+  role="alert"
+>
+  Ops... Essa sala já existe. Digite um nome diferente.
+</div>
