@@ -1,13 +1,15 @@
-<section class="container">
-  <h1>Bem vindo(a) ao nosso Chat!</h1>
-  <h2>Digite seu nickname abaixo para visualizar as salas disponíveis!</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm.value)">
-    <mat-form-field>
-      <mat-label> nickname </mat-label>
-      <input matInput id="nickname" type="text" formControlName="nickname" />
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" class="ml">
-      Login
-    </button>
-  </form>
-</section>
+<body>
+  <section class="container">
+    <h1>Bem vindo(a) ao nosso Chat!</h1>
+    <h2>Digite seu nickname abaixo para visualizar as salas disponíveis!</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm.value)">
+      <mat-form-field>
+        <mat-label> nickname </mat-label>
+        <input matInput id="nickname" type="text" formControlName="nickname" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="ml">
+        Login
+      </button>
+    </form>
+  </section>
+</body>

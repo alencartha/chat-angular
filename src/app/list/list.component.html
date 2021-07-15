@@ -1,24 +1,21 @@
-<nav>
-  <mat-toolbar color="primary">
-    <span>Salas</span>
-    <span class="example-spacer"></span>
+<app-nav></app-nav>
+<body>
+  <div class="templateList">
     <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
+      mat-raised-button
+      color="primary"
+      aria-label="botão de criar nova sala"
+      routerLink="/newRoom"
     >
-      <app-btn-logout></app-btn-logout>
+      + Criar nova sala
     </button>
-  </mat-toolbar>
-</nav>
-
-<div class="templateList">
-  <button
-    mat-raised-button
-    color="primary"
-    aria-label="botão de criar nova sala"
-    routerLink="/newRoom"
-  >
-    + Criar nova sala
-  </button>
-</div>
+  </div>
+  <main>
+    <section>
+      <ng-container matColumnDef="rooms">
+        <th mat-header-cell *matHeaderCellDef>Salas</th>
+        <td mat-cell *matCellDef="let element">{{ element.roomName }}</td>
+      </ng-container>
+    </section>
+  </main>
+</body>

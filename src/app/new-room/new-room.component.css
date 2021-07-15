@@ -1,0 +1,13 @@
+body{
+    display: flex;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1{
+    font-weight: bold;
+}
