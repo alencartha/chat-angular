@@ -1,7 +1,7 @@
 <nav>
   <mat-toolbar color="primary">
     <span>Salas</span>
-    <span class="example-spacer"></span>
+    <span class="header"></span>
     <button
       mat-icon-button
       class="example-icon favorite-icon"
@@ -12,7 +12,7 @@
   </mat-toolbar>
 </nav>
 
-<div class="templateList">
+<div class="templateList rooms-list">
   <button
     mat-raised-button
     color="primary"
@@ -22,3 +22,30 @@
     + Criar nova sala
   </button>
 </div>
+
+<section class="rooms-list">
+  <div class="mat-elevation-z8">
+    <table
+      mat-table
+      [dataSource]="rooms"
+      matSort
+      matSortActive="roomname"
+      matSortDisableClear
+      matSortDirection="asc"
+    >
+      <ng-container matColumnDef="roomname">
+        <th mat-header-cell *matHeaderCellDef>Lista de Salas</th>
+        <td class="rooms-names" mat-cell *matCellDef="let col">
+          {{ col.roomName }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let col; columns: displayedColumns"
+        (click)="enterChatRoom(col.roomName)"
+      ></tr>
+    </table>
+  </div>
+</section>

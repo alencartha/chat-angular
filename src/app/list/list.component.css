@@ -1,9 +1,37 @@
-.example-spacer {
-    flex: 1 1 auto;
-  }
+.header {
+  flex: 1 1 auto;
+}
 
-  .templateList{
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-  }
+.templateList {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.rooms-list {
+  margin: 3rem;
+}
+
+.example-container {
+  position: relative;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-created {
+  max-width: 124px;
+}
+
+.rooms-names {
+  transition-duration: 0.4s;
+  transition-delay: 0.1s;
+}
+
+.rooms-names:hover {
+  cursor: pointer;
+  background-color: #3f51b5;
+  color: #fff;
+}
