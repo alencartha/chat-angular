@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { FirebaseApp } from '@angular/fire';
 
 @Component({
   selector: 'app-chat',
@@ -7,7 +10,13 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit {
-  constructor(private titlePage: Title) {
+  constructor(
+    private titlePage: Title,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private datepipe: DatePipe,
+    private firebase: FirebaseApp
+  ) {
     this.titlePage.setTitle('Chat Room');
   }
 
