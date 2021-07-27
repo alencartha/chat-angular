@@ -82,7 +82,7 @@ export class ListComponent implements OnInit {
         }
       });
 
-    this.router.navigate(['/chatroom', roomname]);
+    this.router.navigate(['/chat', roomname]);
   }
   ngOnInit(): void {}
 }
