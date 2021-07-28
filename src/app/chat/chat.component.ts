@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,10 +11,13 @@ import { FirebaseApp } from '@angular/fire';
   styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit {
+  messageForm!: FormGroup;
+
   constructor(
     private titlePage: Title,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private formBuilder: FormBuilder,
     private datepipe: DatePipe,
     private firebase: FirebaseApp
   ) {
@@ -24,5 +28,13 @@ export class ChatComponent implements OnInit {
     this.router.navigate(['list']);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.messageForm = this.formBuilder.group({
+      message: [null, Validators.required],
+    });
+  }
+
+  formSubmit(form: any) {
+    console.log(form);
+  }
 }
