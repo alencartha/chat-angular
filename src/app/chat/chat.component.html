@@ -12,7 +12,24 @@
   </mat-toolbar>
 </nav>
 
-<main></main>
+<main>
+  <form
+    class="message-form"
+    [formGroup]="messageForm"
+    (ngSubmit)="formSubmit(messageForm.value)"
+  >
+    <mat-form-field class="message-form-field">
+      <input
+        matInput
+        placeholder="Digite a mensagem aqui"
+        formControlName="message"
+      />
+      <button type="submit">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+</main>
 
 <section class="mat-elevation-z8 return" (click)="returnForList()">
   <h4>Voltar para a lista de salas</h4>
