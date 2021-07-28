@@ -20,5 +20,9 @@ export class ChatComponent implements OnInit {
     this.titlePage.setTitle('Chat Room');
   }
 
+  returnForList(): void {
+    this.router.navigate(['list']);
+  }
+
   ngOnInit(): void {}
 }
