@@ -11,7 +11,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'list', component: ListComponent },
   { path: 'newRoom', component: NewRoomComponent },
-  { path: 'chat', component: ChatComponent },
+  { path: 'chat/:room-name', component: ChatComponent },
 ];
 
 @NgModule({

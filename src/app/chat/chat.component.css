@@ -1,0 +1,22 @@
+.header {
+  flex: 1 1 auto;
+}
+
+.templateList {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.return {
+  text-align: center;
+  padding: 1rem;
+  margin: 2rem 4rem;
+  transition-duration: 0.4s;
+  transition-delay: 0.1s;
+}
+
+.return:hover {
+  cursor: pointer;
+  background-color: #cccccc5d;
+}
