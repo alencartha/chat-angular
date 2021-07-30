@@ -5,6 +5,18 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { FirebaseApp } from '@angular/fire';
 
+export const snapshotToArray = (snapshot: any) => {
+  const returnArr: any[] = [];
+
+  snapshot.forEach((childSnapshot: any) => {
+    const item = childSnapshot.val();
+    item.key = childSnapshot.key;
+    returnArr.push(item);
+  });
+
+  return returnArr;
+};
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -23,6 +35,12 @@ export class ChatComponent implements OnInit {
     private firebase: FirebaseApp
   ) {
     this.titlePage.setTitle('Chat Room');
+    this.firebase
+      .database()
+      .ref('chats/')
+      .on('value', (resp) => {
+        this.chatMessage = snapshotToArray(resp);
+      });
   }
 
   returnForList(): void {
@@ -36,8 +54,11 @@ export class ChatComponent implements OnInit {
   }
 
   formSubmit(form: any) {
-    this.chatMessage.push(form);
     console.log(this.chatMessage);
+    this.chatMessage.push(form);
+    const newMessage = this.firebase.database().ref('chats/').push();
+    newMessage.set(form);
+
     //this.chatMessage.push(form.message);
   }
 }
