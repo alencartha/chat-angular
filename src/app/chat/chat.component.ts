@@ -12,7 +12,7 @@ import { FirebaseApp } from '@angular/fire';
 })
 export class ChatComponent implements OnInit {
   messageForm!: FormGroup;
-  chatMessage = '';
+  chatMessage: any[] = [];
 
   constructor(
     private titlePage: Title,
@@ -36,7 +36,8 @@ export class ChatComponent implements OnInit {
   }
 
   formSubmit(form: any) {
-    console.log(form.message);
-    this.chatMessage = form.message;
+    this.chatMessage.push(form);
+    console.log(this.chatMessage);
+    //this.chatMessage.push(form.message);
   }
 }

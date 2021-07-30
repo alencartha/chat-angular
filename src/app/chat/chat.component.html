@@ -14,8 +14,8 @@
 
 <main>
   <section>
-    <div class="chat-message">
-      <p>{{ chatMessage }}</p>
+    <div class="chat-message" *ngFor="let messageUser of chatMessage">
+      <p>{{ messageUser.message }}</p>
     </div>
   </section>
 
