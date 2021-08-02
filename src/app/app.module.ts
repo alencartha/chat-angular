@@ -21,6 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
@@ -49,6 +50,7 @@ import { MatTableModule } from '@angular/material/table';
     MatDialogModule,
     NgbModule,
     MatTableModule,
+    MatCardModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
