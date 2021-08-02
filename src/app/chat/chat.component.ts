@@ -48,6 +48,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.messageForm = this.formBuilder.group({
+      user: [this.nickname],
       message: [null, Validators.required],
     });
 

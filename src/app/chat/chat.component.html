@@ -13,10 +13,16 @@
 </nav>
 
 <main>
-  <section>
-    <div class="chat-message" *ngFor="let messageUser of chatMessage">
+  <section class="container-chat mat-elevation-z5">
+    <mat-card
+      class="chat-message mat-elevation-z4"
+      *ngFor="let messageUser of chatMessage"
+      [class.currentUser]="messageUser.user == nickname"
+      [class.noCurrentUser]="messageUser.user != nickname"
+    >
+      <h4>{{ messageUser.user }} diz:</h4>
       <p>{{ messageUser.message }}</p>
-    </div>
+    </mat-card>
   </section>
 
   <form
@@ -30,10 +36,10 @@
         placeholder="Digite a mensagem aqui"
         formControlName="message"
       />
-      <button type="submit">
-        <mat-icon>send</mat-icon>
-      </button>
     </mat-form-field>
+    <button mat-fab color="primary" type="submit">
+      <mat-icon>send</mat-icon>
+    </button>
   </form>
 </main>
 

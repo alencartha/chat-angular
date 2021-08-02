@@ -8,6 +8,23 @@
   margin-top: 10px;
 }
 
+.container-chat {
+  margin: 0 auto;
+  width: 80vw;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.chat-message {
+  margin: 1em;
+  text-align: center;
+}
+
+.message-form {
+  text-align: center;
+  margin-top: 1rem;
+}
+
 .return {
   padding: 1rem;
   margin: 2rem 4rem;
@@ -18,4 +35,13 @@
 .return:hover {
   cursor: pointer;
   background-color: #cccccc5d;
+}
+
+.currentUser {
+  background-color: #142476;
+  color: white;
+}
+
+.noCurrentUser {
+  background-color: #8c98da;
 }
