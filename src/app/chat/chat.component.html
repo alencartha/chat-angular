@@ -37,11 +37,15 @@
   </form>
 </main>
 
-<section class="mat-elevation-z8 return" (click)="returnForList()">
-  <h4>Voltar para a lista de salas</h4>
-  <button mat-icon-button>
+<form
+  class="mat-elevation-z8 return"
+  [formGroup]="returnForm"
+  (ngSubmit)="returnFormSubmit(returnForm.value)"
+>
+  <button mat-icon-button type="submit" formControlName="message">
     <mat-icon aria-hidden="false" aria-label="Example home icon"
       >reply_all</mat-icon
     >
+    Voltar para a lista de salas
   </button>
-</section>
+</form>

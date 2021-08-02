@@ -23,8 +23,10 @@ export const snapshotToArray = (snapshot: any) => {
   styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit {
+  nickname: any = localStorage.getItem('nickname');
   messageForm!: FormGroup;
   chatMessage: any[] = [];
+  returnForm!: FormGroup;
 
   constructor(
     private titlePage: Title,
@@ -34,6 +36,7 @@ export class ChatComponent implements OnInit {
     private datepipe: DatePipe,
     private firebase: FirebaseApp
   ) {
+    //this.nickname = localStorage.getItem('nickname');
     this.titlePage.setTitle('Chat Room');
     this.firebase
       .database()
@@ -43,13 +46,13 @@ export class ChatComponent implements OnInit {
       });
   }
 
-  returnForList(): void {
-    this.router.navigate(['list']);
-  }
-
   ngOnInit(): void {
     this.messageForm = this.formBuilder.group({
       message: [null, Validators.required],
+    });
+
+    this.returnForm = this.formBuilder.group({
+      message: [`${this.nickname} saiu da sala `],
     });
   }
 
@@ -58,7 +61,13 @@ export class ChatComponent implements OnInit {
     this.chatMessage.push(form);
     const newMessage = this.firebase.database().ref('chats/').push();
     newMessage.set(form);
+  }
 
-    //this.chatMessage.push(form.message);
+  returnFormSubmit(formReturn: any) {
+    this.chatMessage.push(formReturn);
+    const newMessage = this.firebase.database().ref('chats/').push();
+    newMessage.set(formReturn);
+
+    setTimeout(() => this.router.navigate(['list']), 1000);
   }
 }
